@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Angular Content Editable</title>
+        <script   src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script type="text/javascript" src="jquery.caret.js"></script>
+        <script type="text/javascript" src="content-editable.js"></script>
+        <script type="text/javascript" src="content-editable-object.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+
+        <style media="screen">
+            #msg {
+                width: 800px;
+                margin: 0 auto;
+                display: block;
+                border: 1px solid black;
+                height: 400px;
+            }
+
+            button[contenteditable-object] {
+              border: none;
+              text-decoration: none;
+              background: none;
+              padding: 0;
+              margin: 0;
+              font-size: 100%;
+            }
+
+            button[contenteditable-object]:focus {
+              background: #666;
+            }
+
+        </style>
+    </head>
+    <body ng-app="test" ng-controller="TestController as test">
+        <select ng-model="test.variavel">
+            <option value="${Teste}">Teste</option>
+            <option value="${Teste2}">Teste 1</option>
+            <option value="${Teste3}">Teste 2</option>
+            <option value="${Teste4}">Teste 3</option>
+            <option value="${Teste5}">Teste 4</option>
+        </select>
+        <button type="button" name="button" ng-click="test.adicionar()">Adicionar</button>
+        <button type="button" name="button" ng-click="test.posicao()">Gritar posicao!</button>
+        <div contenteditable="true" handler="test.contentEditableHandler"
+          caret-aware="cursor" id="msg" rows="20" cols="140" ng-model="test.mensagem"></div>
+
+    </body>
+</html>
