@@ -6,7 +6,7 @@
 
     function TestController() {
         var viewModel = this;
-        viewModel.mensagem = "Bem vindo <button contenteditable-object>${NOMEASSOCIADO}</button>. Agora são  <button contenteditable-object>${DATAHORA}</button> ";
+        viewModel.mensagem = "Bem vindo <button contenteditable-object>${NOMEASSOCIADO}</button>. Agora são  <button contenteditable-object>${DATAHORA}</button>  ";
         viewModel.contentEditableHandler = {
             avoid: ["$", "{", "}"],
             model: "${?}"

@@ -27,11 +27,6 @@
               margin: 0;
               font-size: 100%;
             }
-
-            button[contenteditable-object]:focus {
-              background: #666;
-            }
-
         </style>
     </head>
     <body ng-app="test" ng-controller="TestController as test">
@@ -44,8 +39,13 @@
         </select>
         <button type="button" name="button" ng-click="test.adicionar()">Adicionar</button>
         <button type="button" name="button" ng-click="test.posicao()">Gritar posicao!</button>
-        <div contenteditable="true" handler="test.contentEditableHandler"
-          caret-aware="cursor" id="msg" rows="20" cols="140" ng-model="test.mensagem"></div>
+        <div contenteditable="true" ng-trim="false"
+          handler="test.contentEditableHandler" id="msg"
+          rows="20" cols="140" ng-model="test.mensagem"></div>
+
+      <div style="width:600px">
+        {{test.mensagem}}
+      </div>
 
     </body>
 </html>

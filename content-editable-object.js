@@ -1,10 +1,14 @@
 (function() {
     "use strict";
 
-    angular.module("content-editable").directive("contenteditableObject", function(KEYS) {
+    angular.module("content-editable")
+        .directive("contenteditableObject", contentEditableObject);
+
+    contentEditableObject.$inject = ['KEYS'];
+
+    function contentEditableObject(KEYS) {
         return {
             restrict: "A",
-            require: "?contenteditable",
             link: directiveDefinition
         };
 
@@ -23,7 +27,7 @@
             });
 
 
-            element.on("focues", function(event) {
+            element.on("focus", function(event) {
                 return event.preventDefault();
             });
 
@@ -34,6 +38,5 @@
                 }
             });
         }
-    });
-
+    }
 }());
